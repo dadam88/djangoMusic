@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+	<div id="singlebeer">
+		<h1>{{ song.name }}</h1>
+		<hr></hr>
+		<p>Composer: <a href="/composers/{{ song.composer.slug }}">{{ song.composer }} </a> </p>
+
+		<p>Level: {{ song.level }}</p>
+		
+		<p>Books: <a href="/books/{{ song.books.slug }}">{{ song.books }} </a></p>
+
+	</div>
+{% endblock %}

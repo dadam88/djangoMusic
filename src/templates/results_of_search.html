@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div>
+		{% for song in songs %}
+		<ul><a href="/songs/{{ song.slug }}/"> {{ song }} </a> </ul>
+		{% endfor %}
+	</div>
+{% endblock %}
