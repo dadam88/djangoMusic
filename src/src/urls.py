@@ -12,8 +12,9 @@ urlpatterns = [
     url(r'^composers/(?P<composerslug>.*)/$', 'piano.views.composer_page', name='composer_page'),
     url(r'^books/(?P<bookslug>.*)/$', 'piano.views.single_book', name='single_book'),
 
-    url(r'^contact/$', 'piano.views.contact', name='contact'),
+    url(r'^results_of_search/$', 'piano.views.get_search', name='get_search'),
 
+    url(r'^$', 'piano.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
 
 ]

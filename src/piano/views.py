@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
 from .models import Song, Composer, Book
+from .forms import SearchForm
+from django.db.models import Q
 # Create your views here.
 def all_songs(request):
 	songs = Song.objects.all().order_by('name')
@@ -27,8 +29,39 @@ def single_book(request, bookslug):
 	context = { 'book': book }
 	return render(request, "singlebook.html", context)
 
-def search_query(request):
-	form = SearchBar(request.POST or None)
 
-	return render(request, "search_results", context)
 
+
+def home(request):
+   
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = SearchForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+
+
+      		search_term = form.cleaned_data.get('search_term')
+      		
+      		songlist = Song.objects.filter(Q(name__icontains=search_term) | Q(composer__name__icontains=search_term))
+      		composerlist = Composer.objects.filter(name__icontains=search_term)
+      		results = []
+      		results = list(songlist) + list(composerlist)
+      		# for song in songlist:
+      		# 	results.append(song)
+
+      		# for composer in composerlist:
+      		# 	results.append(composer)
+
+      		# for result in results:
+      		# 	print result
+
+      		return render(request, 'results_of_search.html', {'results': results})
+
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = SearchForm()
+        
+    return render(request, 'home.html', {'form': form})

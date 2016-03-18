@@ -1,7 +1,4 @@
 from django import forms
 
-from .models import SearchBar
-
-class SearchBarForm(forms.ModelForm):
-	class Meta:
-		model = SearchBar
+class SearchForm(forms.Form):
+   search_term = forms.CharField()
