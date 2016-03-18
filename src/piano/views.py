@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Song, Composer, Book
 from .forms import SearchForm
 from django.db.models import Q
+
 # Create your views here.
 def all_songs(request):
 	songs = Song.objects.all().order_by('name')
@@ -56,8 +57,14 @@ def home(request):
 
       		# for result in results:
       		# 	print result
+      		context = {
+      				'composerlist': composerlist,
+      				'songlist': songlist,
 
-      		return render(request, 'results_of_search.html', {'results': results})
+      		}
+
+      		return render(request, 'results_of_search.html', context)
+      		# return render(request, 'results_of_search.html', {'results': results})
 
 
     # if a GET (or any other method) we'll create a blank form

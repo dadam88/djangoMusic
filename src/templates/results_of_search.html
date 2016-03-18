@@ -2,8 +2,20 @@
 
 {% block content %}
 
-{% for result in results %}
-	<p>{{result}}</p>
+<h1>{{songlist.count}} Songs Found</h1>
+<hr>
+{% for song in songlist %}
+	
+	<li> <a href="/songs/{{ song.slug }}">{{ song }} </a> </li>
+
 {% endfor %}
 
+<h1>{{composerlist.count}} Composers Found</h1>
+{% for composer in composerlist %}
+	
+	<li> <a href="/composers/{{ composer.slug }}">{{ composer }} </a> </li>
+
+{% endfor %}
 {% endblock %}
+
+	
