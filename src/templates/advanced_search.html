@@ -2,9 +2,15 @@
 
 {% block content %}
 <h1> Advanced Search </h1>
-{% for field in advanced_search %}
-{{field}}
-{% endfor %}
+
+<form method='POST' action='{% url 'advanced_search' %}'>{% csrf_token %}
+	{% for field in advanced_search %}
+	{{ field }}
+	{% endfor %}
+<input type='submit' value='Advance Search!'>
+</input>
+</form>
+
 
 {% endblock %}
 
