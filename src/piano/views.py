@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Song, Composer, Book
-from .forms import SearchForm
+from .forms import SearchForm, AdvancedSearchForm
 from django.db.models import Q
 
 # Create your views here.
@@ -38,8 +38,9 @@ def single_book(request, bookslug):
 				 }
 	return render(request, "singlebook.html", context)
 
-
-
+def advanced_search(request):
+	context = { 'advanced_search': AdvancedSearchForm() }
+	return render(request, "advanced_search.html", context)
 
 def home(request):
    

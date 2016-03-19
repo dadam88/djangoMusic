@@ -15,6 +15,9 @@ urlpatterns = [
     # url(r'^results_of_search/$', 'piano.views.get_search', name='get_search'),
 
     url(r'^$', 'piano.views.home', name='home'),
+    url(r'^as$', 'piano.views.advanced_search', name='home'),
+
+
     url(r'^admin/', include(admin.site.urls)),
 
 ]

@@ -5,9 +5,9 @@ from .models import Song, Composer, Book
 
 class SongAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('name',)}
-	list_display = ('name', 'composer', 'books', 'level')
+	list_display = ('name', 'composer', 'books','period', 'level')
 	# Must use foreignkey__attribute of child
-	search_fields = ['name', 'composer__name', 'books__name', 'level']
+	search_fields = ['name', 'composer__name', 'books__name', 'period','level']
 
 class ComposerAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('name',)}
