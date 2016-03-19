@@ -9,3 +9,6 @@ Building a Django based webapp that stores piano pieces and allows the searching
 
 # Search is working!
 ![First Steps](https://raw.githubusercontent.com/dadam88/djangoMusic/master/working-search.gif)
+
+# Advanced Search is working!
+![First Steps](https://raw.githubusercontent.com/dadam88/djangoMusic/master/advanced-search.gif)
