@@ -7,27 +7,35 @@ from django.db.models import Q
 # Create your views here.
 def all_songs(request):
 	songs = Song.objects.all().order_by('name')
-	context = { 'songs': songs }
+	context = { 'songs': songs,
+				'search_bar': SearchForm(),
+	 }
 	
 	# Passes variables to home.html through context list of variables
 	return render(request, "songsall.html", context)
 
 def single_song(request, songslug):
 	song = Song.objects.get(slug=songslug)
-	context = { 'song': song }
+	context = { 'song': song,
+				'search_bar': SearchForm(),
+				 }
 	return render(request, "singlesong.html", context)
 
 
 def composer_page(request, composerslug):
 	composer = Composer.objects.get(slug=composerslug)
 	composer_songs = Song.objects.all().filter(composer__slug=composerslug)
-	context = { 'composer': composer, 'composer_songs': composer_songs }
+	context = { 'composer': composer, 'composer_songs': composer_songs,
+				'search_bar': SearchForm(),
+				 }
 	return render(request, "composer.html", context)
 
 def single_book(request, bookslug):
 	book = Book.objects.get(slug=bookslug)
 	
-	context = { 'book': book }
+	context = { 'book': book,
+				'search_bar': SearchForm(),
+				 }
 	return render(request, "singlebook.html", context)
 
 
@@ -60,7 +68,7 @@ def home(request):
       		context = {
       				'composerlist': composerlist,
       				'songlist': songlist,
-
+      				'search_bar': SearchForm(),
       		}
 
       		return render(request, 'results_of_search.html', context)
@@ -71,4 +79,4 @@ def home(request):
     else:
         form = SearchForm()
         
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'home.html', {'search_bar': form})
