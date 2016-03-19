@@ -11,11 +11,26 @@ class Song(models.Model):
         ('M', 'Modern'),
     )
 
+	LEVELS = (
+		('1', '1'),
+		('2', '2'),
+		('3', '3'),
+		('4', '4'),
+		('5', '5'),
+		('6', '6'),
+		('7', '7'),
+		('8', '8'),
+		('9', '9'),
+		('10', '10'),
+		)
+
 	name		=	models.CharField(max_length=50)
-	slug		=	models.SlugField(unique=True)
+	slug		=	models.SlugField(unique=True, blank=True)
 	composer	=	models.ForeignKey('Composer')
-	books		=	models.ForeignKey('Book')
-	level		=	models.CharField(max_length=1, default=0)
+	books		=	models.ForeignKey('Book', default=1)
+	level		=	models.CharField(max_length=2,
+										choices=LEVELS, 
+										default=1)
 	period		=	models.CharField(max_length=20,
                                       choices=MUSIC_PERIODS,
                                       default='DEFAULT')

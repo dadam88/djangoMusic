@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 from .models import Song, Composer, Book
-from .forms import SearchForm, AdvancedSearchForm
+from .forms import SearchForm, AdvancedSearchForm, SubmitAWork
 from django.db.models import Q
+from django.template.defaultfilters import slugify
 
 # Create your views here.
 def all_songs(request):
@@ -39,6 +40,28 @@ def single_book(request, bookslug):
     return render(request, "singlebook.html", context)
 
 
+def newview(request):
+
+    context = {'search_bar': SearchForm(),
+                'submitawork': SubmitAWork()
+    }
+    if request.method == 'POST':
+
+        form = SubmitAWork(request.POST)
+
+        if form.is_valid():
+            
+            form.save()
+            
+            # form.fields.slug = slugify(form.fields]name)
+            
+        else:
+
+            print form.errors
+    else:
+        pass
+
+    return render(request, "newview.html", context)
 
 def home(request):
    

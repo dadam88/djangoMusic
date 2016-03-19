@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> New View </h1>
+
+<form method='POST' action='{% url 'newview' %}'>{% csrf_token %}
+	{% for field in submitawork %}
+	{{ field }}
+
+	{% endfor %}
+<input type='submit' value='Submit New Work!'>
+</input>
+</form>
+
+
+{% endblock %}
+
+<script type="text/javascript" src="/admin-media/js/urlify.js"></script>
+<script type="text/javascript">
+document.getElementById("id_name").onkeyup = function() {
+    var e = document.getElementById("id_slug");
+    if (!e._changed) { e.value = URLify(document.getElementById("id_name").value, 50); }
+}
+</script>
