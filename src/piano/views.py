@@ -41,23 +41,17 @@ def single_book(request, bookslug):
 
 
 def newview(request):
-
     context = {'search_bar': SearchForm(),
-                'submitawork': SubmitAWork()
-    }
+                    'submitawork': SubmitAWork()
+        }
+    
     if request.method == 'POST':
 
         form = SubmitAWork(request.POST)
 
         if form.is_valid():
-            
-            form.save()
-            
-            # form.fields.slug = slugify(form.fields]name)
-            
-        else:
 
-            print form.errors
+            form.save()
     else:
         pass
 
