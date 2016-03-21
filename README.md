@@ -12,3 +12,6 @@ Building a Django based webapp that stores piano pieces and allows the searching
 
 # Advanced Search is working!
 ![First Steps](https://raw.githubusercontent.com/dadam88/djangoMusic/master/advanced-search.gif)
+
+# Submit an Entry  into database!
+![First Steps](https://raw.githubusercontent.com/dadam88/djangoMusic/master/submit-an-entry.gif)
