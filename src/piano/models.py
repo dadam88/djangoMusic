@@ -5,10 +5,10 @@ from django.db import models
 
 class Song(models.Model):
 	MUSIC_PERIODS = (
-        ('B', 'Baroque'),
-        ('C', 'Classical'),
-        ('R', 'Romantic'),
-        ('M', 'Modern'),
+        ('Baroque', 'Baroque'),
+        ('Classical', 'Classical'),
+        ('Romantic', 'Romantic'),
+        ('Modern', 'Modern'),
     )
 
 	LEVELS = (

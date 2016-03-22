@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^$', 'piano.views.home', name='home'),
     url(r'^newview/$', 'piano.views.newview', name='newview'),
 
-    url(r'^as$', 'piano.views.advanced_search', name='advanced_search'),
+    url(r'^advanced_search$', 'piano.views.advanced_search', name='advanced_search'),
 
     url(r'^admin/', include(admin.site.urls)),
 

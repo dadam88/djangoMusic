@@ -8,8 +8,10 @@ from django.template.defaultfilters import slugify
 # Create your views here.
 def all_songs(request):
     songs = Song.objects.all().order_by('name')
+    field_names = Song._meta.get_all_field_names()
     context = { 'songs': songs,
                 'search_bar': SearchForm(),
+                'field_names': field_names,
      }
     
     # Passes variables to home.html through context list of variables
