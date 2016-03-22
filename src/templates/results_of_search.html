@@ -4,12 +4,28 @@
 
 <h1>{{songlist.count}} Songs Found</h1>
 <hr>
-{% for song in songlist %}
-	
-	<li> <a href="/songs/{{ song.slug }}">{{ song }} </a> </li>
 
-{% endfor %}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Level</th>
+			<th>Period</th>
+			<th>Composer</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for song in songlist %}
+		<tr>
+			<td>  <a href="/songs/{{ song.slug }}/"> {{ song }} </a> </td>
+			<td> {{ song.level }}		</td>
+			<td> {{ song.period }}		</td>
+			<td> {{ song.composer }}		</td>
+		</tr>
+		{% endfor %}
 
+	</tbody>
+</table>
 <h1>{{composerlist.count}} Composers Found</h1>
 {% for composer in composerlist %}
 	

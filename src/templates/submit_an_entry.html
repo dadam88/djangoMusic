@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> New View </h1>
+
+<form method='POST' action='{% url 'submit_an_entry' %}'>{% csrf_token %}
+	{% for field in submitawork %}
+	{% if field == 'slug' %}
+	
+	{% endif %}
+	{{ field }}
+
+	{% endfor %}
+<input type='submit' value='Submit New Work!'>
+</input>
+</form>
+
+
+{% endblock %}
+

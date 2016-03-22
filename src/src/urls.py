@@ -15,7 +15,7 @@ urlpatterns = [
     # url(r'^results_of_search/$', 'piano.views.get_search', name='get_search'),
 
     url(r'^$', 'piano.views.home', name='home'),
-    url(r'^newview/$', 'piano.views.newview', name='newview'),
+    url(r'^submit_an_entry/$', 'piano.views.submit_an_entry', name='submit_an_entry'),
 
     url(r'^advanced_search$', 'piano.views.advanced_search', name='advanced_search'),
 

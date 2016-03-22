@@ -42,7 +42,7 @@ def single_book(request, bookslug):
     return render(request, "singlebook.html", context)
 
 
-def newview(request):
+def submit_an_entry(request):
     context = {'search_bar': SearchForm(),
                     'submitawork': SubmitAWork()
         }
@@ -57,7 +57,7 @@ def newview(request):
     else:
         pass
 
-    return render(request, "newview.html", context)
+    return render(request, "submit_an_entry.html", context)
 
 def home(request):
    
