@@ -1,0 +1,24 @@
+Song
+	name
+	slug
+	composer
+	books
+	level
+	period
+	....
+	key
+	technique
+	tempo
+	etc...
+
+Composer
+	name
+	slug
+
+Book
+	name
+	slug
+	publisher
+	....
+
+
